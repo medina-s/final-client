@@ -1,11 +1,14 @@
 import React from 'react';
+import { Alert } from 'reactstrap'
 
 const Home = (props) => {
     return(
         <div>
-            Welcome to our Blue Badge Project
-            Courtesy of Ryan, Marla, and Medina!
-        </div>
+        <h4 className="heading">Welcome to our blue badge project!</h4>
+        <p className="welcome">
+            Made by Ryan, Marla, and Medina.
+        </p>
+    </div>
     )
 }
 
