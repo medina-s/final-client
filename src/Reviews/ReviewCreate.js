@@ -1,77 +1,55 @@
-function postReview() {
-    function displayMine() {
-        console.log("displayMine Function Called");
-        const accessToken = localStorage.getItem('SessionToken');
+import React, { useEffect, useState } from 'react';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
+
+const ReviewCreate = (props) => {
+    const [movie, setMovie] = useState('');
+    const [date, setDate] = useState('');
+    const [feedback, setFeedback] = useState ('');
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
         fetch(`http://localhost:3000/review/create`, {
-            method: "POST",
+            method: 'POST',
+            body: JSON.stringify({review: {movie: movie, date: date, feedback: feedback}}),
             headers: new Headers({
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${accessToken}`
-            }),
-            body: JSON.stringify(newFeedback)
+                'Content-type': 'application/json',
+                'Authorization': `Bearer ${props.token}`
+            })
+        }).then((res)=> res.json())
+        .then((logData) => {
+            console.log(logData);
+            setMovie('');
+            setDate('');
+            setFeedback('');
+            props.fetchReviews();
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                displayMine();
-
-                let display = document.getElementById('reviews');
-                for (i = 0; i = display.childNodes.length; i++) {
-                    display.removeChild(display.firstChild)
-                }
-
-                if (data.length === 0) {
-                    let display = document.getElementById('reviews');
-                    let header = document.createElement('h5');
-
-                    display.appendChild(header);
-                    header.textContent = "You haven't made any posts yet!";
-                    header.setAttribute("class", "noPosts")
-                } else {
-                    for(i = 0; i < data.length; i++) {
-                        let display = document.getElementById('reviews');
-                        let card = documnet.createElement('div');
-                        let body = document.createElement('div');
-                        let header = document.createElement('h5');
-                        let subtitle = document.createElement('h6');
-                        let para = document.createElement('p');
-                        let editBtn = document.createElement('button');
-                        let deleteBtn = document.createElement('button');
-
-                        let current = data[i];
-                        let movie = current.movie;
-                        let date = current.date;
-                        let feedback = current.feedback;
-
-                        header.textContent = movie;
-                        subtitle.textContent = date;
-                        para.textContent = feedback;
-                        editBtn.textContent = "Edit";
-
-                        display.appendChild(card);
-                        card.appendChild(body);
-                        body.appendChild(header);
-                        body.appendChild(subtitle);
-                        body.appendChild(para);
-                        body.appendChild(editBtn);
-
-                    }
-                }
-            })
-            .catch (err => {
-                console.error(err)
-            })
     }
-        let movie = document.getElementById('movie').value;
-        let date = document.getElementById('date').value;
-        let feedback = document.getElementById('feedback').value;
 
-        let newFeedback = {
-            review: {
-                movie: movie,
-                date: date,
-                feedback: feedback
-            }
-        }
-    }
+    return(
+        <>
+        <h3>Leave your feedback</h3>
+        <Form onSubmit={handleSubmit}>
+            <FormGroup>
+                <Label htmlFor="movie"/>
+                <Input name="movie" value={movie} onChange={(e)=> setMovie(e.target.value)} />
+            </FormGroup>
+            <FormGroup>
+                <Label htmlFor="date"/>
+                <Input name="date" value={date} onChange={(e)=> setDate(e.target.value)}>
+                    <option value="Time">Time</option>
+                    <option value="Weight">Weight</option>
+                    <option value="Distance">Distance</option>
+                </Input>
+            </FormGroup>
+            <FormGroup>
+                <Label htmlFor="feedback"/>
+                <Input name="feedback" value={feedback} onChange={(e)=> setFeedback(e.target.value)}/>
+            </FormGroup>
+            <button type="submit">Click to submit</button>
+        </Form>
+        </>
+    )
+}
+
+export default ReviewCreate;
