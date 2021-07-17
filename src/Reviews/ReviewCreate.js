@@ -37,9 +37,6 @@ const ReviewCreate = (props) => {
             <FormGroup>
                 <Label htmlFor="date"/>
                 <Input name="date" value={date} onChange={(e)=> setDate(e.target.value)}>
-                    <option value="Time">Time</option>
-                    <option value="Weight">Weight</option>
-                    <option value="Distance">Distance</option>
                 </Input>
             </FormGroup>
             <FormGroup>
