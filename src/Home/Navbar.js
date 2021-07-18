@@ -8,7 +8,6 @@ import {
   NavItem,
   Button
 } from 'reactstrap';
-import Home from '../Reviews/ReviewIndex';
 
 const Sitebar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
