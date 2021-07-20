@@ -1,6 +1,6 @@
-import React, {useState, Component, useEffect } from 'react'
+import React, {useState,  useEffect } from 'react'
 import Auth from './Auth/Auth';
-import Sitebar from './Home/Navbar';
+// import Sitebar from './Home/Navbar';
 import ReviewIndex from './Reviews/ReviewIndex';
 import Sidebar from './Site/Sidebar';
 import {
@@ -25,6 +25,7 @@ const updateToken = (newToken) => {
 const clearToken = () => {
   localStorage.clear();
   setSessionToken('');
+  window.location.href="/" //Redirects to localhost:3001 on click of logout
 }
 
 const protectedViews = () => {
