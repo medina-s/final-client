@@ -33,11 +33,11 @@ const Register = (props) => {
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     {/* <Label htmlFor="email">Email</Label> */}
-                    <Input placeholder="Email" className="regemail" onChange={(e) => setEmail(e.target.value)} name="email" value={email} required/>
+                    <Input placeholder="Email" className="registeremail" onChange={(e) => setEmail(e.target.value)} name="email" value={email} required/>
                 </FormGroup>
                 <FormGroup>
                     {/* <Label htmlFor="password">Password</Label> */}
-                    <Input placeholder="Password" onChange={(e) => setPassword(e.target.value)} name="password" value={password} required/>
+                    <Input placeholder="Password" className="registerpass" onChange={(e) => setPassword(e.target.value)} name="password" value={password} required/>
                 </FormGroup>
                 <Button type="submit">Register</Button>
             </Form>

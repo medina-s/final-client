@@ -28,18 +28,20 @@ const Login = (props) => {
 
     return(
         <div className="forms">
+            <div className="loginform">
             <h1>Login</h1>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     {/* <Label htmlFor="email">Email</Label> */}
-                    <Input placeholder="Email" onChange={(e) => setEmail(e.target.value)} name="email" value={email} required/>
+                    <Input placeholder="Email" className="logemail" onChange={(e) => setEmail(e.target.value)} name="email" value={email} required/>
                 </FormGroup>
                 <FormGroup>
                     {/* <Label htmlFor="password">Password</Label> */}
-                    <Input placeholder="Password" onChange={(e) => setPassword(e.target.value)} name="password" value={password} required/>
+                    <Input placeholder="Password" className="logpass" onChange={(e) => setPassword(e.target.value)} name="password" value={password} required/>
                 </FormGroup>
                 <Button type="submit">Login</Button>
             </Form>
+        </div>
         </div>
     )
 }

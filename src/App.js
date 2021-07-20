@@ -25,6 +25,7 @@ const updateToken = (newToken) => {
 const clearToken = () => {
   localStorage.clear();
   setSessionToken('');
+  window.location.href="/" //Redirects to localhost:3001 on click of logout
 }
 
 const protectedViews = () => {
@@ -36,7 +37,7 @@ const protectedViews = () => {
       {/* <Sitebar clickLogout={clearToken}/> */}
       {protectedViews()}
       <Router>
-      <Sidebar clickLogout={clearToken}/>
+      <Sidebar clickLogout={clearToken} sessionToken={sessionToken} />
       </Router>
     </div>
   );

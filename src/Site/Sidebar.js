@@ -22,14 +22,14 @@ const Sidebar = (props) => {
                     <li><Button onClick={props.clickLogout} id="logoutbtn">Logout</Button></li>
                 </ul>
             </div>
-            <div className='sidebar-route'>
+        </div>: null}
+        <div className='sidebar-route'>
                 <Switch>
                     <Route exact path='/home'><Home /></Route>
                     <Route exact path='/reviewcreate'><ReviewCreate /></Route>
                     <Route exact path='/reviewall'><ReviewAll /></Route>
                 </Switch>
             </div>
-        </div>: null}
         </Nav>
         </div>
     )
