@@ -9,6 +9,7 @@ const ReviewCreate = (props) => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(props.token);
         fetch(`http://localhost:3000/review/create`, {
             method: 'POST',
             body: JSON.stringify({review: {movie: movie, date: date, feedback: feedback}}),
@@ -43,7 +44,7 @@ const ReviewCreate = (props) => {
                 <Label htmlFor="feedback"/>
                 <Input name="feedback" value={feedback} onChange={(e)=> setFeedback(e.target.value)}/>
             </FormGroup>
-            <button type="submit">Click to submit</button>
+            <Button type="submit">Click to submit</Button>
         </Form>
         </>
     )

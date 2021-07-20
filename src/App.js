@@ -4,7 +4,7 @@ import Sitebar from './Home/Navbar';
 import ReviewIndex from './Reviews/ReviewIndex';
 import Sidebar from './Site/Sidebar';
 import {
-  BrowserRouter as Router //We are impoorting the specific part of the package BrowserRouter but calling it Router. 
+  BrowserRouter as Router //We are importing the specific part of the package BrowserRouter but calling it Router. 
 } from 'react-router-dom';
 
 function App() {
@@ -33,11 +33,11 @@ const protectedViews = () => {
 
   return (
     <div className="App">
-      <Sitebar clickLogout={clearToken}/>
+      {/* <Sidebar clickLogout={clearToken}/> */}
       {/* <Auth updateToken={updateToken}/> */}
       {protectedViews()}
       <Router>
-      <Sidebar />
+      <Sidebar sessionToken={sessionToken} clickLogout={clearToken} />
       </Router>
     </div>
   );
