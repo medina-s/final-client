@@ -6,7 +6,9 @@ const Login = (props) => {
     const [password, setPassword] = useState('');
 
     const handleSubmit = (event) => {
+        const emailcheck = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
         event.preventDefault();
+        if(email.match(emailcheck)) {
         fetch('http://localhost:3000/user/login', {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: `Bearer ${password}`}}),
@@ -19,21 +21,27 @@ const Login = (props) => {
             props.updateToken(data.sessionToken)
         })
     }
+    else {
+        alert('Invalid email address format')
+    }
+}
 
     return(
         <div className="forms">
+            <div className="loginform">
             <h1>Login</h1>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="email">Email</Label>
-                    <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email}/>
+                    {/* <Label htmlFor="email">Email</Label> */}
+                    <Input placeholder="Email" className="logemail" onChange={(e) => setEmail(e.target.value)} name="email" value={email} required/>
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="password">Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
+                    {/* <Label htmlFor="password">Password</Label> */}
+                    <Input placeholder="Password" className="logpass" onChange={(e) => setPassword(e.target.value)} name="password" value={password} required/>
                 </FormGroup>
                 <Button type="submit">Login</Button>
             </Form>
+        </div>
         </div>
     )
 }
