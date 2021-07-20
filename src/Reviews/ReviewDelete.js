@@ -12,14 +12,14 @@ const ReviewDelete = (props) => {
         }).then(() => props.fetchReview())
     }
 
-    const workoutMapper = () => {
+    const reviewMapper = () => {
         return props.reviews.map((review, index) => {
             return(
                 <tr key={index}>
                     <th scope="row">{review.id}</th>
-                    <td>{review.result}</td>
-                    <td>{review.description}</td>
-                    <td>{review.definition}</td>
+                    <td>{review.movie}</td>
+                    <td>{review.date}</td>
+                    <td>{review.feedback}</td>
                     <td><Button color="warning" onClick={() => {props.editUpdateReview(review); props.updateOn()}}>Update</Button>
                     <Button color="danger" onClick={() => {deleteReview(review)}}>Delete</Button>
                     </td>
@@ -37,13 +37,13 @@ const ReviewDelete = (props) => {
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Result</th>
-                    <th>Description</th>
-                    <th>Definition</th>
+                    <th>Movie</th>
+                    <th>Date </th>
+                    <th>Feedback</th>
                 </tr>
             </thead>
             <tbody>
-                {workoutMapper()}
+                {reviewMapper()}
             </tbody>
         </Table>
     </>
