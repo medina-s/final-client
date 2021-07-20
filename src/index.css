@@ -11,3 +11,71 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#logoutbtn {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sidebar {
+  float: left;
+  background-color: #6e7277;
+  position:absolute;
+  padding-left: 1%;
+  padding-right: 1%;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  align-items: center;
+}
+
+.sidebar-list-styling{
+  background-color: #6e7277;
+  color: black;
+}
+
+.sidebar-list a{
+  color: black;
+  text-decoration: none;
+}
+
+.forms {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+.registeremail, .registerpass, .logemail, .logpass {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
