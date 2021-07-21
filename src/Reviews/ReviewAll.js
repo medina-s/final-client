@@ -1,21 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import {Container, Row, Col} from 'reactstrap';
-import ReviewCreate from './ReviewCreate';
-// import ReviewDelete from './ReviewDelete';
-// import ReviewMine from './ReviewMine';
-// import ReviewUpdate from './ReviewUpdate'
+import {Container, Row, Col, Table, Button} from 'reactstrap';
 
 const ReviewAll = (props) => {
     const [reviews, setReviews] = useState([]);
-    // const [updateActive, setUpdateActive] = useState(false);
-    // const [reviewToUpdate, setReviewToUpdate] = useState({});
 
     const fetchReviews = () => {
         fetch('http://localhost:3000/review', {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${props.token}`
+                'Authorization': `Bearer ${props.sessionToken}`
             })
         }).then((res) => res.json()
         ).then((logData) => {
@@ -23,37 +17,41 @@ const ReviewAll = (props) => {
             })
     }
 
-    // const editUpdateReview = (review) => {
-    //     setReviewToUpdate(review);
-    //     console.log(review);
-    // }
-
-    // const updateOn = () => {
-    //     setUpdateActive(true);
-    // }
-
-    // const updateOff = () => {
-    //     setUpdateActive(false);
-    // }
-
-    useEffect(() => {
-        fetchReviews();
-    }, [])
+    const reviewMapper = () => {
+        return reviews.map((review, index) => {
+            return(
+                <tr key={index}>
+                    <th scope="row">{review.id}</th> 
+                    <td>{review.movie}</td>
+                    <td>{review.date}</td>
+                    <td>{review.feedback}</td>
+                    <td>
+                    </td>
+                </tr>
+            )
+        })
+    }
 
     return(
-        <Container>
-            <Row>
-                <Col md="3">
-                    <ReviewCreate fetchReviews={fetchReviews} token={props.token}/>
-                </Col>
-                <Col md="9">
-                {/* <ReviewAll reviews={reviews} editUpdateReview={editUpdateReview} updateOn={updateOn} fetchReviews={fetchReviews} token={props.token}/> */}
-                </Col>
-                {/* {updateActive ? <ReviewUpdate reviewToUpdate={reviewToUpdate}
-                updateOff={updateOff} token={props.token} fetchReviews={fetchReviews}/> : <></>} */}
-            </Row>
-        </Container>
+        <div className="viewreviews">
+        <h3>Reviews</h3>
+        <hr/>
+        <Table striped>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Movie</th>
+                    <th>Date</th>
+                    <th>Feedback</th>
+                </tr>
+            </thead>
+            <tbody>
+            {reviewMapper}
+            <Button onClick={fetchReviews()}></Button>
+            </tbody>
+        </Table>
+        </div>
     )
-};
+}
 
 export default ReviewAll;
