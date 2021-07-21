@@ -8,6 +8,7 @@ import Home from '../Reviews/ReviewIndex';
 import ReviewAll from '../Reviews/ReviewAll';
 import ReviewCreate from '../Reviews/ReviewCreate';
 import ReviewDelete from '../Reviews/ReviewDelete';
+import ReviewUpdate from '../Reviews/ReviewUpdate';
 
 
 const Sidebar = (props) => {
@@ -21,6 +22,7 @@ const Sidebar = (props) => {
                     <li><Link to='/reviewcreate'>Create a Review</Link></li>
                     <li><Link to='/reviewall'>Find all reviews</Link></li>
                     <li><Link to='/reviewdelete'>Delete a review</Link></li>
+                    <li><Link to='/reviewupdate'>Update a review</Link></li>
                     <li><Button onClick={props.clickLogout} id="logoutbtn">Logout</Button></li>
                 </ul>
             </div>
@@ -31,6 +33,7 @@ const Sidebar = (props) => {
                     <Route exact path='/reviewcreate'><ReviewCreate sessionToken={props.sessionToken}/></Route>
                     <Route exact path='/reviewall'><ReviewAll sessionToken={props.sessionToken}/></Route>
                     <Route exact path='/reviewdelete'><ReviewDelete sessionToken={props.sessionToken}/></Route>
+                    <Route exact path='/revieupdate'><ReviewUpdate sessionToken={props.sessionToken}/></Route>
                 </Switch>
             </div>
         </Nav>
