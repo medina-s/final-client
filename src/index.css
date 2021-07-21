@@ -38,7 +38,7 @@ code {
 
 .sidebar {
   float: left;
-  background-color: #6e7277;
+  background-color: transparent;
   position:absolute;
   padding-left: 1%;
   padding-right: 1%;
@@ -78,4 +78,24 @@ code {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.moviereview, #moviereview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 250px;
+}
+
+.reviewall {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+  width: 50%;
+  margin-left: 200px;
+  margin-right: auto;
+}
+
+.viewreviews{
+  padding-left: 250px;
 }
