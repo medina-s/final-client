@@ -1,5 +1,80 @@
 import React, {useState}from 'react';
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
+const ReviewUpdate = (props) => {
+    console.log(props)
+     const [editMovie, setEditMovie] = useState(props.review.movie);
+     const [editDate, setEditDate] = useState(props.review.date);
+     const [editFeed, setEditFeed] = useState(props.review.feedback);
+
+     const reviewUpdate = (event, review) => {
+         console.log(props);
+         event.preventDefault();
+         fetch(`http://localhost:3000/review/update/${props.review.id}`, {
+             method: 'PUT',
+             body: JSON.stringify({
+                 review:{
+                     movie: editMovie, 
+                     date:editDate, 
+                     feedback: editFeed
+                 }
+             }),
+                    
+             headers: new Headers({
+                 'Content-type': 'application/json',
+                 'Authorization': `Bearer ${props.sessionToken}`
+             })
+         }).then((res)=>{
+             props.fetchReviews();
+            toggle();
+
+            //  props.updateOff();
+         })
+     }
+
+    const [modal, setModal] = useState(false);
+
+    const toggle = () => setModal(!modal);
+
+    return(
+        <div>
+        <Button color="danger" onClick={toggle}>Update</Button>
+        <Modal isOpen={modal} toggle={toggle}>
+            <ModalHeader>Update a Review</ModalHeader>
+            <ModalBody>
+                <Form onSubmit={reviewUpdate}>
+                    <FormGroup>
+                        <Label htmlFor="feedback">Edit Feedback</Label>
+                        <Input name="feedback" value={editFeed} onChange={(e)=> setEditFeed(e.target.value)}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="movie">Edit Movie Title</Label>
+                        <Input name="movie" value={editMovie} onChange={(e)=> setEditMovie(e.target.value)}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="date">Edit Date of the Review</Label>
+                        <Input name="date" value={editDate} onChange={(e)=> setEditDate(e.target.value)}>
+                        </Input>
+                    </FormGroup>
+                    <Button type="submit" >Update the Review</Button>
+                </Form>
+            </ModalBody>
+            
+        {/* //<div>
+        /*
+        <Button color="danger" onClick={toggle}>Review</Button>
+      <Modal isOpen={modal} toggle={toggle} >
+        <ModalHeader toggle={toggle}>{[props.review.id,props.review.movie]}</ModalHeader>
+        <ModalBody>
+            <form>
+            <label>
+            Name:
+            <input type="text" name="name" placeholder={props.review.movie}/>
+            </label>
+            <input type="submit" value="Update" />
+
+            </form>
+=======
 const ReviewUpdate = (props) => {
     // const [editMovie, setEditMovie] = useState(props.reviewToUpdate.movie);
     // const [editDate, setEditDate] = useState(props.reviewToUpdate.date);
@@ -54,6 +129,7 @@ const ReviewUpdate = (props) => {
       <Modal isOpen={modal} toggle={toggle} >
         <ModalHeader toggle={toggle}>{props.review.id}</ModalHeader>
         <ModalBody>
+
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </ModalBody>
         <ModalFooter>
@@ -63,6 +139,12 @@ const ReviewUpdate = (props) => {
       </Modal>
       </div>
         // </Modal>
+
+        */ }
+        </Modal>
+        </div>
     )
 }
+
+
 export default ReviewUpdate;

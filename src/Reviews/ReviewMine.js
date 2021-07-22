@@ -2,11 +2,12 @@ import React, {useState, useEffect} from 'react';
 import {Container, Row, Col, Table, Button} from 'reactstrap';
 import ReviewUpdate from './ReviewUpdate';
 
-const ReviewAll = (props) => {
+const ReviewMine = (props) => {
     const [reviews, setReviews] = useState([]);
     const fetchReviews = () => {
         const token = localStorage.getItem("token")
-        fetch(`http://localhost:3000/review/`, {
+        fetch(`http://localhost:3000/review/mine`, {
+
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
@@ -27,8 +28,10 @@ const ReviewAll = (props) => {
                     <td>{review.movie}</td>
                     <td>{review.date}</td>
                     <td>{review.feedback}</td>
-                    <td><ReviewUpdate review={review}/>
+                    <td><ReviewUpdate review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews} />
                     </td>
+                    
+
                 </tr>
             )
         })
@@ -38,7 +41,7 @@ const ReviewAll = (props) => {
     }, [])
     return(
         <div className="viewreviews">
-        <h3>Reviews</h3>
+        <h3>List of my Reviews</h3>
         <hr/>
         <Table striped>
             <thead>
@@ -50,11 +53,14 @@ const ReviewAll = (props) => {
                 </tr>
             </thead>
             <tbody>
-            {reviewMapper()}
+            {reviews.length !== 0 ? reviewMapper() : fetchReviews()}
             {/* <Button onClick={fetchReviews()}></Button> */}
             </tbody>
         </Table>
         </div>
     )
 }
-export default ReviewAll;
+
+export default ReviewMine;
+
+
