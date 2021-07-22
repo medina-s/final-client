@@ -27,8 +27,8 @@ const ReviewAll = (props) => {
                     <td>{review.movie}</td>
                     <td>{review.date}</td>
                     <td>{review.feedback}</td>
-                    <td><ReviewUpdate review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews} />
-                    </td>
+                    {/* <td><ReviewUpdate review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews} /> */}
+                    {/* </td> */}
                 </tr>
             )
         })
