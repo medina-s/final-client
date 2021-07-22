@@ -35,6 +35,7 @@ const ReviewDelete = (props) => {
     return(
         <Button color="danger" onClick={() => {ReviewDelete(props.review)}}>Delete</Button>
     )
+
 };
 
 export default ReviewDelete;
