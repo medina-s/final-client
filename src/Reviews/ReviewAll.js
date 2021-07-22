@@ -27,7 +27,7 @@ const ReviewAll = (props) => {
                     <td>{review.movie}</td>
                     <td>{review.date}</td>
                     <td>{review.feedback}</td>
-                    <td><ReviewUpdate review={review}/>
+                    <td><ReviewUpdate review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews} />
                     </td>
                 </tr>
             )
@@ -50,7 +50,7 @@ const ReviewAll = (props) => {
                 </tr>
             </thead>
             <tbody>
-            {reviewMapper()}
+            {reviews.length !== 0 ? reviewMapper() : fetchReviews()}
             {/* <Button onClick={fetchReviews()}></Button> */}
             </tbody>
         </Table>

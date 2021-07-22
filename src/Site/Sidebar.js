@@ -33,7 +33,7 @@ const Sidebar = (props) => {
                     <Route exact path='/reviewcreate'><ReviewCreate sessionToken={props.sessionToken}/></Route>
                     <Route exact path='/reviewall'><ReviewAll sessionToken={props.sessionToken}/></Route>
                     <Route exact path='/reviewdelete'><ReviewDelete sessionToken={props.sessionToken}/></Route>
-                    <Route exact path='/revieupdate'><ReviewUpdate sessionToken={props.sessionToken}/></Route>
+                    <Route exact path='/reviewupdate'><ReviewUpdate sessionToken={props.sessionToken}/></Route>
                 </Switch>
             </div>
         </Nav>
