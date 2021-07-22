@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
+
 const ReviewDelete = (props) => {
     console.log(props)
     const [editMovie, setEditMovie] = useState(props.review.movie);
     const [editDate, setEditDate] = useState(props.review.date);
     const [editFeed, setEditFeed] = useState(props.review.feedback);
+ 
     const ReviewDelete = (event, review) => {
+
         const token = localStorage.getItem("token")
         console.log(props);
         // event.preventDefault();
@@ -25,6 +28,7 @@ const ReviewDelete = (props) => {
         }).then((res) => props.fetchReviews());
             toggle();
     }
+
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
     return(
