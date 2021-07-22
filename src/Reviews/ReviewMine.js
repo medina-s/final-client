@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Row, Col, Table, Button} from 'reactstrap';
 import ReviewUpdate from './ReviewUpdate';
+import ReviewDelete from './ReviewDelete';
 
-const ReviewMine = (props) => {
+
+const ReviewAll = (props) => {
     const [reviews, setReviews] = useState([]);
     const fetchReviews = () => {
         const token = localStorage.getItem("token")
-        fetch(`http://localhost:3000/review/mine`, {
-
+        fetch('http://localhost:3000/review', {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
@@ -28,10 +29,11 @@ const ReviewMine = (props) => {
                     <td>{review.movie}</td>
                     <td>{review.date}</td>
                     <td>{review.feedback}</td>
-                    <td><ReviewUpdate review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews} />
+                    <td><ReviewUpdate review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews}/>
+                        <ReviewDelete review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews}/>
+                    {/* <td><ReviewUpdate review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews} /> */}
+                    {/* </td> */}
                     </td>
-                    
-
                 </tr>
             )
         })
@@ -41,7 +43,7 @@ const ReviewMine = (props) => {
     }, [])
     return(
         <div className="viewreviews">
-        <h3>List of my Reviews</h3>
+        <h3>List of all my reviews</h3>
         <hr/>
         <Table striped>
             <thead>
@@ -60,7 +62,5 @@ const ReviewMine = (props) => {
         </div>
     )
 }
-
-export default ReviewMine;
-
+export default ReviewAll;
 
