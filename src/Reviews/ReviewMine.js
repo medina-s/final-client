@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {Table} from 'reactstrap';
 import ReviewDelete from './ReviewDelete';
 import ReviewUpdate from './ReviewUpdate';
-import ReviewDelete from './ReviewDelete';
 
 
 const ReviewMine = (props) => {
