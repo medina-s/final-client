@@ -25,6 +25,7 @@ const ReviewDelete = (props) => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             })
+
         }).then((res) => props.fetchReviews());
             toggle();
     }
@@ -34,5 +35,6 @@ const ReviewDelete = (props) => {
     return(
         <Button color="danger" onClick={() => {ReviewDelete(props.review)}}>Delete</Button>
     )
+
 };
 export default ReviewDelete;
