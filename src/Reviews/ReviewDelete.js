@@ -12,21 +12,21 @@ const ReviewDelete = (props) => {
         }).then(() => props.fetchReview())
     }
 
-    const reviewMapper = () => {
-        return props.reviews.map((review, index) => {
-            return(
-                <tr key={index}>
-                    <th scope="row">{review.id}</th>
-                    <td>{review.movie}</td>
-                    <td>{review.date}</td>
-                    <td>{review.feedback}</td>
-                    <td><Button color="warning" onClick={() => {props.editUpdateReview(review); props.updateOn()}}>Update</Button>
-                    <Button color="danger" onClick={() => {deleteReview(review)}}>Delete</Button>
-                    </td>
-                </tr>
-            )
-        })
-    }
+    // const reviewMapper = () => {
+    //     return props.reviews.map((review, index) => {
+    //         return(
+    //             <tr key={index}>
+    //                 <th scope="row">{review.id}</th>
+    //                 <td>{review.movie}</td>
+    //                 <td>{review.date}</td>
+    //                 <td>{review.feedback}</td>
+    //                 <td><Button color="warning" onClick={() => {props.editUpdateReview(review); props.updateOn()}}>Update</Button>
+    //                 <Button color="danger" onClick={() => {deleteReview(review)}}>Delete</Button>
+    //                 </td>
+    //             </tr>
+    //         )
+    //     })
+    // }
 
 
     return(
@@ -43,7 +43,7 @@ const ReviewDelete = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {reviewMapper()}
+                {/* {reviewMapper()} */}
             </tbody>
         </Table>
     </>
