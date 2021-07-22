@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Row, Col, Table, Button} from 'reactstrap';
 import ReviewUpdate from './ReviewUpdate';
-// import ReviewUpdate from './ReviewUpdate';
-import ReviewDelete from './ReviewUpdate';
 
 const ReviewAll = (props) => {
     const [reviews, setReviews] = useState([]);
@@ -29,8 +27,8 @@ const ReviewAll = (props) => {
                     <td>{review.movie}</td>
                     <td>{review.date}</td>
                     <td>{review.feedback}</td>
-                    <td><ReviewUpdate review={review}/>
-                    </td>
+                    {/* <td><ReviewUpdate review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews} /> */}
+                    {/* </td> */}
                 </tr>
             )
         })
@@ -52,7 +50,7 @@ const ReviewAll = (props) => {
                 </tr>
             </thead>
             <tbody>
-            {reviewMapper()}
+            {reviews.length !== 0 ? reviewMapper() : fetchReviews()}
             {/* <Button onClick={fetchReviews()}></Button> */}
             </tbody>
         </Table>

@@ -19,8 +19,8 @@ const Sidebar = (props) => {
                 <ul className='sidebar-list list-unstyled'>
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/reviewcreate'>Create a Review</Link></li>
-                    <li><Link to='/reviewall'>All reviews/Update/Delete</Link></li>
-                    <li><Link to='/reviewmine'>My reviews/Edit/Update</Link> </li>
+                    <li><Link to='/reviewall'>All reviews</Link></li>
+                    <li><Link to='/reviewmine'>My reviews/Update/Delete</Link> </li>
                     <li><Button onClick={props.clickLogout} id="logoutbtn">Logout</Button></li>
                 </ul>
             </div>
