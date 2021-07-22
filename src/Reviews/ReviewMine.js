@@ -39,7 +39,7 @@ const ReviewMine = (props) => {
     }, [])
     return(
         <div className="viewreviews">
-        <h3>Reviews</h3>
+        <h3>List of my Reviews</h3>
         <hr/>
         <Table striped>
             <thead>

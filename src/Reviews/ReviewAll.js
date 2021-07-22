@@ -38,7 +38,7 @@ const ReviewAll = (props) => {
     }, [])
     return(
         <div className="viewreviews">
-        <h3>Reviews</h3>
+        <h3>List of all Reviews</h3>
         <hr/>
         <Table striped>
             <thead>
