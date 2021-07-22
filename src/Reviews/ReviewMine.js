@@ -2,12 +2,15 @@ import React, {useState, useEffect} from 'react';
 import {Table} from 'reactstrap';
 import ReviewDelete from './ReviewDelete';
 import ReviewUpdate from './ReviewUpdate';
+import ReviewDelete from './ReviewDelete';
+
 
 const ReviewMine = (props) => {
     const [reviews, setReviews] = useState([]);
     const fetchReviews = () => {
         const token = localStorage.getItem("token")
         fetch(`http://localhost:3000/review/mine`, {
+
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
@@ -41,7 +44,7 @@ const ReviewMine = (props) => {
     }, [])
     return(
         <div className="viewreviews">
-        <h3>Reviews</h3>
+        <h3>List of all my reviews</h3>
         <hr/>
         <Table striped>
             <thead>
@@ -60,4 +63,6 @@ const ReviewMine = (props) => {
         </div>
     )
 }
+
 export default ReviewMine;
+
