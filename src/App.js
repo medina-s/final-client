@@ -1,11 +1,12 @@
-import React, {useState, Component, useEffect } from 'react'
+import React, {useState,  useEffect } from 'react'
 import Auth from './Auth/Auth';
-import Sitebar from './Home/Navbar';
+// import Sitebar from './Home/Navbar';
 import ReviewIndex from './Reviews/ReviewIndex';
 import Sidebar from './Site/Sidebar';
 import {
-  BrowserRouter as Router //We are impoorting the specific part of the package BrowserRouter but calling it Router. 
+  BrowserRouter as Router //We are importing the specific part of the package BrowserRouter but calling it Router. 
 } from 'react-router-dom';
+
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
@@ -25,6 +26,7 @@ const updateToken = (newToken) => {
 const clearToken = () => {
   localStorage.clear();
   setSessionToken('');
+  window.location.href="/" //Redirects to localhost:3001 on click of logout
 }
 
 const protectedViews = () => {
@@ -33,11 +35,11 @@ const protectedViews = () => {
 
   return (
     <div className="App">
-      <Sitebar clickLogout={clearToken}/>
+      {/* <Sidebar clickLogout={clearToken}/> */}
       {/* <Auth updateToken={updateToken}/> */}
       {protectedViews()}
       <Router>
-      <Sidebar />
+      <Sidebar sessionToken={sessionToken} clickLogout={clearToken} />
       </Router>
     </div>
   );
