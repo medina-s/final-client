@@ -7,7 +7,7 @@ const ReviewDelete = (props) => {
     const [editDate, setEditDate] = useState(props.review.date);
     const [editFeed, setEditFeed] = useState(props.review.feedback);
     
-    const reviewDelete = (event, review) => {
+    const ReviewDelete = (event, review) => {
         const token = localStorage.getItem("token")
         console.log(props);
         // event.preventDefault();
@@ -31,8 +31,7 @@ const ReviewDelete = (props) => {
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
     return(
-        <Button color="danger" onClick={() => {reviewDelete(props.review)}}>Delete</Button>
+        <Button color="danger" onClick={() => {ReviewDelete(props.review)}}>Delete</Button>
     )
 };
-
 export default ReviewDelete;
