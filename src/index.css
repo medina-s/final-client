@@ -27,6 +27,10 @@ code {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: aqua;
+  height: 2vw;
+  padding-top: 8%;
+
 }
 
 .welcome {
@@ -51,6 +55,7 @@ code {
 .sidebar-list-styling{
   background-color: #6e7277;
   color: black;
+  height: 100vw;
 }
 
 .sidebar-list a{

@@ -6,8 +6,9 @@ const ReviewDelete = (props) => {
     const [editMovie, setEditMovie] = useState(props.review.movie);
     const [editDate, setEditDate] = useState(props.review.date);
     const [editFeed, setEditFeed] = useState(props.review.feedback);
-    
+ 
     const ReviewDelete = (event, review) => {
+
         const token = localStorage.getItem("token")
         console.log(props);
         // event.preventDefault();
@@ -24,6 +25,7 @@ const ReviewDelete = (props) => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             })
+
         }).then((res) => props.fetchReviews());
             toggle();
     }
@@ -34,4 +36,5 @@ const ReviewDelete = (props) => {
         <Button color="danger" onClick={() => {ReviewDelete(props.review)}}>Delete</Button>
     )
 };
+
 export default ReviewDelete;

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Row, Col, Table, Button} from 'reactstrap';
 import ReviewUpdate from './ReviewUpdate';
+import ReviewDelete from './ReviewDelete';
 
 const ReviewAll = (props) => {
     const [reviews, setReviews] = useState([]);
@@ -38,7 +39,7 @@ const ReviewAll = (props) => {
     }, [])
     return(
         <div className="viewreviews">
-        <h3>Reviews</h3>
+        <h3>List of all reviews</h3>
         <hr/>
         <Table striped>
             <thead>

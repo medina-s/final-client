@@ -8,6 +8,7 @@ const ReviewMine = (props) => {
     const fetchReviews = () => {
         const token = localStorage.getItem("token")
         fetch(`http://localhost:3000/review/mine`, {
+
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
@@ -41,7 +42,7 @@ const ReviewMine = (props) => {
     }, [])
     return(
         <div className="viewreviews">
-        <h3>Reviews</h3>
+        <h3>List of all my reviews</h3>
         <hr/>
         <Table striped>
             <thead>
@@ -60,4 +61,5 @@ const ReviewMine = (props) => {
         </div>
     )
 }
+
 export default ReviewMine;
