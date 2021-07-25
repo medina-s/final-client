@@ -38,10 +38,10 @@ const ReviewAll = (props) => {
         fetchReviews();
     }, [])
     return(
-        <div className="viewreviews">
+        <div className="reviewalldiv">
         <h3>List of all reviews</h3>
         <hr/>
-        <Table striped>
+        <Table className="reviewalltable" striped dark>
             <thead>
                 <tr>
                     <th>#</th>
