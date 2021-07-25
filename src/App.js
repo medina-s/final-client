@@ -45,6 +45,7 @@ const protectedViews = () => {
       </Router>
     </div>
   );
-}
+};
+
 
 export default App;
