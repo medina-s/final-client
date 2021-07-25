@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 const Register = (props) => {
     const [email, setEmail] = useState('');
@@ -9,7 +10,7 @@ const Register = (props) => {
         const emailcheck = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
         event.preventDefault();
         if(email.match(emailcheck)) {
-        fetch('http://localhost:3000/user/register', {
+        fetch(`${APIURL}/user/register`, {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: `Bearer ${password}`}}),
             headers: new Headers({

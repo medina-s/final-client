@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 
 const ReviewCreate = (props) => {
@@ -10,7 +11,7 @@ const ReviewCreate = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(props.sessionToken);
-        fetch(`http://localhost:3000/review/create`, {
+        fetch(`${APIURL}/review/create`, {
             method: 'POST',
             body: JSON.stringify({review: {movie: movie, date: date, feedback: feedback}}),
             headers: new Headers({

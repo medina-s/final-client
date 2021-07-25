@@ -2,12 +2,13 @@ import React, {useState, useEffect} from 'react';
 import {Container, Row, Col, Table, Button} from 'reactstrap';
 import ReviewUpdate from './ReviewUpdate';
 import ReviewDelete from './ReviewDelete';
+import APIURL from '../helpers/environment';
 
 const ReviewAll = (props) => {
     const [reviews, setReviews] = useState([]);
     const fetchReviews = () => {
         const token = localStorage.getItem("token")
-        fetch('http://localhost:3000/review', {
+        fetch(`${APIURL}/review`, {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
