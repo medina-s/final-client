@@ -27,9 +27,9 @@ code {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: aqua;
-  height: 2vw;
-  padding-top: 8%;
+  /* background-color: aqua; */
+  /* height: 2vw;
+  padding-top: 8%; */
 
 }
 
@@ -43,13 +43,11 @@ code {
 .sidebar {
   float: left;
   background-color: transparent;
-  position:absolute;
-  padding-left: 1%;
-  padding-right: 1%;
-  top: 0;
-  bottom: 0;
+  position:fixed;
   z-index: 2;
-  align-items: center;
+  text-align: center;
+  top: auto;
+  bottom: auto;
 }
 
 .sidebar-list-styling{
@@ -101,6 +99,16 @@ code {
   margin-right: auto;
 }
 
-.viewreviews{
-  padding-left: 250px;
+.navbar-nav > li{
+  padding-left:10px;
+  padding-right:10px;
+}
+
+
+.reviewalldiv {
+  align-items: center;
+  justify-content: center;
+  width: 55%;
+  margin-right: auto;
+  margin-left: auto;
 }
