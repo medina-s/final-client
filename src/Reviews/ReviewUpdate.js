@@ -1,5 +1,6 @@
 import React, {useState}from 'react';
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 const ReviewUpdate = (props) => {
     console.log(props)
@@ -11,7 +12,7 @@ const ReviewUpdate = (props) => {
       const token = localStorage.getItem("token")
          console.log(props);
          event.preventDefault();
-         fetch(`http://localhost:3000/review/update/${props.review.id}`, {
+         fetch(`${APIURL}/review/update/${props.review.id}`, {
              method: 'PUT',
              body: JSON.stringify({
                  review:{

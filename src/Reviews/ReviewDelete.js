@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 const ReviewDelete = (props) => {
     console.log(props)
@@ -12,7 +13,7 @@ const ReviewDelete = (props) => {
         const token = localStorage.getItem("token")
         console.log(props);
         // event.preventDefault();
-        fetch(`http://localhost:3000/review/delete/${props.review.id}`, {
+        fetch(`${APIURL}/review/delete/${props.review.id}`, {
             method: 'DELETE',
             body: JSON.stringify({
                 review: {
