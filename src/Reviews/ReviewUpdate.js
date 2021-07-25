@@ -13,7 +13,7 @@ const ReviewUpdate = (props) => {
       const token = localStorage.getItem("token")
          console.log(props);
          event.preventDefault();
-         fetch(`${APIURL}/review/update/${props.review.id}`, {
+         fetch(`${APIURL}review/update/${props.review.id}`, {
              method: 'PUT',
              body: JSON.stringify({
                  review:{

@@ -13,7 +13,7 @@ const ReviewDelete = (props) => {
         const token = localStorage.getItem("token")
         console.log(props);
         // event.preventDefault();
-        fetch(`${APIURL}/review/delete/${props.review.id}`, {
+        fetch(`${APIURL}review/delete/${props.review.id}`, {
             method: 'DELETE',
             body: JSON.stringify({
                 review: {

@@ -8,7 +8,7 @@ const ReviewMine = (props) => {
     const [reviews, setReviews] = useState([]);
     const fetchReviews = () => {
         const token = localStorage.getItem("token")
-        fetch(`${APIURL}/review/mine`, {
+        fetch(`${APIURL}review/mine`, {
 
             method: 'GET',
             headers: new Headers ({

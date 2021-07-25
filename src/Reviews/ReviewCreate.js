@@ -11,7 +11,7 @@ const ReviewCreate = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(props.sessionToken);
-        fetch(`${APIURL}/review/create`, {
+        fetch(`${APIURL}review/create`, {
             method: 'POST',
             body: JSON.stringify({review: {movie: movie, date: date, feedback: feedback}}),
             headers: new Headers({
