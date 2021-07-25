@@ -4,7 +4,6 @@ import APIURL from '../helpers/environment';
 import ReviewDelete from './ReviewDelete';
 import ReviewUpdate from './ReviewUpdate';
 
-
 const ReviewMine = (props) => {
     const [reviews, setReviews] = useState([]);
     const fetchReviews = () => {
@@ -31,7 +30,8 @@ const ReviewMine = (props) => {
                     <td>{review.movie}</td>
                     <td>{review.date}</td>
                     <td>{review.feedback}</td>
-                    <td><ReviewUpdate review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews} />
+                    <td><ReviewUpdate review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews} /></td>
+                    <td>
                         <ReviewDelete review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews}/>
                     </td>
                     
@@ -46,13 +46,15 @@ const ReviewMine = (props) => {
         <div className="viewreviews">
         <h3>List of all my reviews</h3>
         <hr/>
-        <Table striped>
+        <Table striped dark>
             <thead>
                 <tr>
                     <th>#</th>
                     <th>Movie</th>
                     <th>Date</th>
                     <th>Feedback</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -65,4 +67,3 @@ const ReviewMine = (props) => {
 }
 
 export default ReviewMine;
-
