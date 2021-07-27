@@ -43,21 +43,22 @@ const ReviewMine = (props) => {
         fetchReviews();
     }, [])
     return(
-        <div className="viewreviews">
-        <h3>List of all my reviews</h3>
+        <div className="viewmyreviews">
+        <h3 className="reviewmineheader">List of all my reviews</h3>
         <hr/>
-        <Table striped>
+        <Table>
             <thead>
                 <tr>
                     <th>#</th>
                     <th>Movie</th>
                     <th>Date</th>
                     <th>Feedback</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
             {reviews.length !== 0 ? reviewMapper() : fetchReviews()}
-            {/* <Button onClick={fetchReviews()}></Button> */}
             </tbody>
         </Table>
         </div>

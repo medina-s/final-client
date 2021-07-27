@@ -1,8 +1,8 @@
 import React, {useState,  useEffect } from 'react'
 import Auth from './Auth/Auth';
-// import Sitebar from './Home/Navbar';
+import Sitebar from './Home/Navbar';
 import ReviewIndex from './Reviews/ReviewIndex';
-import Sidebar from './Site/Sidebar';
+import Navigation from './Home/Navigation'
 import {
   BrowserRouter as Router //We are importing the specific part of the package BrowserRouter but calling it Router. 
 } from 'react-router-dom';
@@ -35,15 +35,14 @@ const protectedViews = () => {
 
   return (
     <div className="App">
-      {/* <Sidebar clickLogout={clearToken}/> */}
-      {/* <Auth updateToken={updateToken}/> */}
-      {protectedViews()}
       <Router>
-      <Sidebar sessionToken={sessionToken} clickLogout={clearToken} />
+      {sessionToken !== '' && <Sitebar sessionToken={sessionToken} clickLogout={clearToken}/>} 
+      {protectedViews()}
+      <Navigation sessionToken={sessionToken} />
       </Router>
     </div>
   );
-}
+};
 
 
-export default App;
+export default App; 

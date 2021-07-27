@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
+import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody} from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 const Register = (props) => {
     const [email, setEmail] = useState('');
@@ -9,7 +10,8 @@ const Register = (props) => {
         const emailcheck = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
         event.preventDefault();
         if(email.match(emailcheck)) {
-        fetch('http://localhost:3000/user/register', {
+        // fetch(`${APIURL}user/register`, {
+            fetch(`http://localhost:3000/user/register`, {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: `Bearer ${password}`}}),
             headers: new Headers({
@@ -26,22 +28,29 @@ const Register = (props) => {
     }
     }
 
+    const [modal, setModal] = useState(false);
+
+    const toggle = () => setModal(!modal);
+
     return(
-        <div className="forms">
-            <div className="registerform">
-            <h1>Register</h1>
-            <Form onSubmit={handleSubmit}>
-                <FormGroup>
-                    {/* <Label htmlFor="email">Email</Label> */}
+        <div className="signupform">
+        <Button onClick={toggle}>Sign up!</Button>
+        <Modal isOpen={modal} toggle={toggle}>
+            <ModalHeader className="signuphead">Sign up for an account!</ModalHeader>
+            <ModalBody>
+                <div className="signuppopup">
+                <Form onSubmit={handleSubmit}>
+                    <FormGroup>
                     <Input placeholder="Email" className="registeremail" onChange={(e) => setEmail(e.target.value)} name="email" value={email} required/>
-                </FormGroup>
-                <FormGroup>
-                    {/* <Label htmlFor="password">Password</Label> */}
+                    </FormGroup>
+                    <FormGroup>
                     <Input placeholder="Password" className="registerpass" onChange={(e) => setPassword(e.target.value)} name="password" value={password} required/>
-                </FormGroup>
-                <Button type="submit">Register</Button>
-            </Form>
-        </div>
+                    </FormGroup>
+                    <Button type="submit" className="signupbtn" >Sign Up!</Button>
+                </Form>
+                </div>
+            </ModalBody>
+        </Modal>
         </div>
     )
 }
