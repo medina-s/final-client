@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Container, Row, Col, Table, Button} from 'reactstrap';
 import ReviewUpdate from './ReviewUpdate';
 // import ReviewUpdate from './ReviewUpdate';
-import ReviewDelete from './ReviewUpdate';
+import ReviewDelete from './ReviewDelete';
 
 
 const ReviewAll = (props) => {
