@@ -12,56 +12,19 @@ code {
     monospace;
 }
 
-#logoutbtn {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-}
-
-.heading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  /* background-color: aqua; */
-  /* height: 2vw;
-  padding-top: 8%; */
-
-}
-
-.welcome {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.sidebar {
-  float: left;
-  background-color: transparent;
-  position:fixed;
-  z-index: 2;
+/*Sign up login menu */
+.signuppopup {
   text-align: center;
-  top: auto;
-  bottom: auto;
+  justify-content: center;
+  align-items: center;
 }
 
-.sidebar-list-styling{
-  background-color: #6e7277;
-  color: black;
-  height: 100vw;
+.signupform {
+  display: grid;
+  z-index: 1;
 }
 
-.sidebar-list a{
-  color: black;
-  text-decoration: none;
-}
-
-.forms {
+.loginform {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -71,8 +34,7 @@ code {
   box-sizing: border-box;
   flex-direction: column;
   text-align: center;
-}
-
+} 
 
 .registeremail, .registerpass, .logemail, .logpass {
   margin-bottom: 10px;
@@ -83,20 +45,29 @@ code {
   margin-right: auto;
 }
 
-.moviereview, #moviereview {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 250px;
+#signuphead, .signuphead {
+margin-left: auto;
+margin-right: auto;
 }
 
-.reviewall {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  text-align: center;
-  width: 50%;
-  margin-left: 200px;
-  margin-right: auto;
+/* Splash Page/ Home */
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(0, 0, 0, 0.918);
 }
 
 .navbar-nav > li{
@@ -104,11 +75,148 @@ code {
   padding-right:10px;
 }
 
+.logoutbtn {
+	background: none;
+	color: red;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
 
-.reviewalldiv {
-  align-items: center;
-  justify-content: center;
-  width: 55%;
+/* Review Mine / Review All */
+
+.reviewhead, .reviewmineheader {
+  text-align: center;
+  font-size: 250% ;
+  font-weight: 700;
+}
+
+.table {
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.644);
+  padding: 20px; 
+  width: 750px;
+  height: 250px;  
+  border-collapse:separate;
   margin-right: auto;
   margin-left: auto;
+  border-spacing: 0;
+  font-size: 20px;
+} 
+
+.moviereview > h1 {
+  font-size: 250% ;
+  font-weight: 700;
+}
+
+.moviereview {
+  background-image: url(https://cdn.pixabay.com/photo/2016/03/23/17/33/curtain-1275200__340.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 0;
+  text-align: center;
+  color: black;
+}
+
+
+.deletebtn{
+  margin: 0 auto;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.644);
+  color: black;
+}
+
+.updatebtn {
+  margin: 0 auto;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.644);
+  color: black;
+}
+
+.viewmyreviews {
+  background-image: url(https://preview.pixlr.com/images/800wm/100/1/1001435035.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 0;
+  color: black;
+}
+
+.viewallreviews {
+  background-image: url(https://i.imgur.com/McIz6Ty.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 0;
+  color: black;
+}
+
+.updatetitle {
+  text-align: center;
+  display: block;
+  color: black;
+}
+
+.updatemovietitle, .updatedatetitle, .updatefeedbacktitle {
+text-align: center;
+display: block;
+margin-bottom: 2%;
+background-color: rgba(255, 255, 255, 0.644);
+color: black;
+}
+
+.updatemovie, .updatedate, .updatefeedback {
+  text-align: center;
+  margin-bottom: 5%;
+  background-color: #dad5d5f8;
+  color: black;
+}
+
+/* Create Review */
+
+.movieinput, .dateinput {
+  width: 20%;
+  height: 7vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.644);
+  color: black;
+}
+
+.feedbackinput {
+  width: 20%;
+  height: 14vh;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  margin-bottom: 1%;
+  background: rgba(255, 255, 255, 0.644);
+  color: black;
+  font-size: 100%;
+}
+
+.submitreviewbtn {
+  margin: 0 auto;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.644);
+  color: black;
 }

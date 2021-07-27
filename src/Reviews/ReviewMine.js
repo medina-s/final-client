@@ -8,7 +8,8 @@ const ReviewMine = (props) => {
     const [reviews, setReviews] = useState([]);
     const fetchReviews = () => {
         const token = localStorage.getItem("token")
-        fetch(`${APIURL}review/mine`, {
+        // fetch(`${APIURL}review/mine`, {
+            fetch ('http://localhost:3000/review/mine', {
 
             method: 'GET',
             headers: new Headers ({
@@ -43,10 +44,10 @@ const ReviewMine = (props) => {
         fetchReviews();
     }, [])
     return(
-        <div className="viewreviews">
-        <h3>List of all my reviews</h3>
+        <div className="viewmyreviews">
+        <h3 className="reviewmineheader">List of all my reviews</h3>
         <hr/>
-        <Table striped dark>
+        <Table>
             <thead>
                 <tr>
                     <th>#</th>
@@ -59,7 +60,6 @@ const ReviewMine = (props) => {
             </thead>
             <tbody>
             {reviews.length !== 0 ? reviewMapper() : fetchReviews()}
-            {/* <Button onClick={fetchReviews()}></Button> */}
             </tbody>
         </Table>
         </div>

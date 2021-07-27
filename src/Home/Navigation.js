@@ -1,16 +1,6 @@
 import React, {useState} from 'react';
 import {
-Navbar,
-NavbarBrand,
-Collapse,
-NavbarToggler,
-Nav,
-NavItem,
-Button
-} from 'reactstrap';
-import {
     Route,
-    Link,
     Switch
 } from 'react-router-dom';
 import Home from '../Reviews/ReviewIndex';

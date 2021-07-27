@@ -12,8 +12,8 @@ const ReviewDelete = (props) => {
 
         const token = localStorage.getItem("token")
         console.log(props);
-        // event.preventDefault();
-        fetch(`${APIURL}review/delete/${props.review.id}`, {
+        // fetch(`${APIURL}review/delete/${props.review.id}`, {
+            fetch (`http://localhost:3000/review/delete/${props.review.id}`, {
             method: 'DELETE',
             body: JSON.stringify({
                 review: {
@@ -34,7 +34,7 @@ const ReviewDelete = (props) => {
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
     return(
-        <Button color="danger" onClick={() => {ReviewDelete(props.review)}}>Delete</Button>
+        <Button className="deletebtn" onClick={() => {ReviewDelete(props.review)}}>Delete</Button>
     )
 
 };

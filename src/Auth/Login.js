@@ -1,4 +1,3 @@
-  
 import React, {useState} from 'react';
 import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
 import APIURL from '../helpers/environment';
@@ -11,7 +10,8 @@ const Login = (props) => {
         const emailcheck = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
         event.preventDefault();
         if(email.match(emailcheck)) {
-        fetch(`${APIURL}user/login`, {
+        // fetch(`${APIURL}user/login`, {
+            fetch ('http://localhost:3000/user/login', {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: `Bearer ${password}`}}),
             headers: new Headers({
@@ -29,21 +29,17 @@ const Login = (props) => {
 }
 
     return(
-        <div className="forms">
-            <div className="loginform">
+        <div className="loginform">
             <h1>Login</h1>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    {/* <Label htmlFor="email">Email</Label> */}
                     <Input placeholder="Email" className="logemail" onChange={(e) => setEmail(e.target.value)} name="email" value={email} required/>
                 </FormGroup>
                 <FormGroup>
-                    {/* <Label htmlFor="password">Password</Label> */}
                     <Input placeholder="Password" className="logpass" onChange={(e) => setPassword(e.target.value)} name="password" value={password} required/>
                 </FormGroup>
                 <Button type="submit">Login</Button>
             </Form>
-        </div>
         </div>
     )
 }

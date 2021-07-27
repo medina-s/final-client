@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import {Container, Row, Col, Table, Button} from 'reactstrap';
-import ReviewUpdate from './ReviewUpdate';
-import ReviewDelete from './ReviewDelete';
+import {Table} from 'reactstrap';
 import APIURL from '../helpers/environment';
 
 const ReviewAll = (props) => {
     const [reviews, setReviews] = useState([]);
     const fetchReviews = () => {
         const token = localStorage.getItem("token")
-        fetch(`${APIURL}review`, {
+        // fetch(`${APIURL}review`, {
+            fetch ('http://localhost:3000/review', {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
@@ -29,8 +28,6 @@ const ReviewAll = (props) => {
                     <td>{review.movie}</td>
                     <td>{review.date}</td>
                     <td>{review.feedback}</td>
-                    {/* <td><ReviewUpdate review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews} /> */}
-                    {/* </td> */}
                 </tr>
             )
         })
@@ -39,10 +36,10 @@ const ReviewAll = (props) => {
         fetchReviews();
     }, [])
     return(
-        <div className="reviewalldiv">
-        <h3>List of all reviews</h3>
+        <div className="viewallreviews">
+        <h3 className="reviewhead">All Reviews, Enjoy!</h3>
         <hr/>
-        <Table className="reviewalltable" striped dark>
+        <Table>
             <thead>
                 <tr>
                     <th>#</th>
@@ -53,7 +50,6 @@ const ReviewAll = (props) => {
             </thead>
             <tbody>
             {reviews.length !== 0 ? reviewMapper() : fetchReviews()}
-            {/* <Button onClick={fetchReviews()}></Button> */}
             </tbody>
         </Table>
         </div>

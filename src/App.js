@@ -35,13 +35,10 @@ const protectedViews = () => {
 
   return (
     <div className="App">
-      {/* <Auth updateToken={updateToken}/> */}
-      {/* {protectedViews()} */}
       <Router>
       {sessionToken !== '' && <Sitebar sessionToken={sessionToken} clickLogout={clearToken}/>} 
-      <Navigation sessionToken={sessionToken} />
       {protectedViews()}
-      {/* <Sidebar sessionToken={sessionToken} clickLogout={clearToken} /> */}
+      <Navigation sessionToken={sessionToken} />
       </Router>
     </div>
   );
