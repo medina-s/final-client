@@ -8,8 +8,8 @@ const ReviewDelete = (props) => {
     const reviewDelete = (event, review) => {
         const token = localStorage.getItem("token")
         console.log(props);
-        // event.preventDefault();
-        fetch(`http://localhost:3000/review/delete/${props.review.id}`, {
+        // fetch(`${APIURL}review/delete/${props.review.id}`, {
+            fetch (`http://localhost:3000/review/delete/${props.review.id}`, {
             method: 'DELETE',
             body: JSON.stringify({
                 review: {
@@ -31,4 +31,5 @@ const ReviewDelete = (props) => {
         <Button color="danger" onClick={() => {reviewDelete(props.review)}}>Delete</Button>
     )
 };
+
 export default ReviewDelete;

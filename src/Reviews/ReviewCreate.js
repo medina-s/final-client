@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 
 const ReviewCreate = (props) => {
@@ -10,7 +11,8 @@ const ReviewCreate = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(props.sessionToken);
-        fetch(`http://localhost:3000/review/create`, {
+        // fetch(`${APIURL}review/create`, {
+            fetch ('http://localhost:3000/review/create', {
             method: 'POST',
             body: JSON.stringify({review: {movie: movie, date: date, feedback: feedback}}),
             headers: new Headers({
@@ -28,22 +30,22 @@ const ReviewCreate = (props) => {
 
     return(
         <div className="moviereview">
-        <h3>Leave your feedback</h3>
+        <h1>Leave your feedback</h1>
         <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label htmlFor="movie"/>
-                <Input name="movie" placeholder="Movie" value={movie} onChange={(e)=> setMovie(e.target.value)} />
+                <Input name="movie" className="movieinput" placeholder="Movie" required value={movie} onChange={(e)=> setMovie(e.target.value)} />
             </FormGroup>
             <FormGroup>
                 <Label htmlFor="date"/>
-                <Input name="date" placeholder="Date" value={date} onChange={(e)=> setDate(e.target.value)}>
+                <Input name="date" className="dateinput" placeholder="Date" required value={date} onChange={(e)=> setDate(e.target.value)}>
                 </Input>
             </FormGroup>
             <FormGroup>
                 <Label htmlFor="feedback"/>
-                <Input name="feedback" placeholder="Enter your review" value={feedback} onChange={(e)=> setFeedback(e.target.value)}/>
+                <textarea name="feedback" className="feedbackinput" required placeholder="Enter your review" value={feedback} onChange={(e)=> setFeedback(e.target.value)}/>
             </FormGroup>
-            <Button type="submit">Click to submit</Button>
+            <Button type="submit" className="submitreviewbtn" >Click to submit</Button>
         </Form>
         </div>
     )
