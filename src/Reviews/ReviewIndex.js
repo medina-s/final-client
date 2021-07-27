@@ -5,8 +5,8 @@ import { Container } from 'reactstrap';
 const Home = (props) => {
     return(
         <div className="heading">
-        <h4 >Welcome to our blue badge project!</h4>
-        <p >
+        <h4 className="welcome">Welcome to our blue badge project!</h4>
+        <p className="welcome1">
             Made by Ryan, Marla, and Medina.
         </p>
     </div>

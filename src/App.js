@@ -30,7 +30,7 @@ const clearToken = () => {
 }
 
 const protectedViews = () => {
-  return (sessionToken === localStorage.getItem('token') ? <ReviewIndex token={sessionToken}/>: <Auth updateToken={updateToken}/>)
+  return (sessionToken === localStorage.getItem('token') ? null : <Auth updateToken={updateToken}/>)
 }
 
   return (
