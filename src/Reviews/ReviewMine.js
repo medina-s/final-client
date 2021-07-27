@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {Container, Row, Col, Table, Button} from 'reactstrap';
+import {Table} from 'reactstrap';
+import ReviewDelete from './ReviewDelete';
 import ReviewUpdate from './ReviewUpdate';
 import ReviewDelete from './ReviewDelete';
 
@@ -30,6 +31,7 @@ const ReviewMine = (props) => {
                     <td>{review.date}</td>
                     <td>{review.feedback}</td>
                     <td><ReviewUpdate review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews} />
+                        <ReviewDelete review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews}/>
                     </td>
                     <td><ReviewDelete review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews} />
                     </td>
@@ -42,7 +44,7 @@ const ReviewMine = (props) => {
     }, [])
     return(
         <div className="viewreviews">
-        <h3>List of my Reviews</h3>
+        <h3>List of all my reviews</h3>
         <hr/>
         <Table striped>
             <thead>
@@ -63,5 +65,4 @@ const ReviewMine = (props) => {
 }
 
 export default ReviewMine;
-
 

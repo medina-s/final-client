@@ -32,9 +32,6 @@ const ReviewAll = (props) => {
                     <td>{review.feedback}</td>
                     {/* <td><ReviewUpdate review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews} /> */}
                     {/* </td> */}
-                    <td><ReviewUpdate review={review}/>
-                    </td>
-
                 </tr>
             )
         })
@@ -44,7 +41,7 @@ const ReviewAll = (props) => {
     }, [])
     return(
         <div className="viewreviews">
-        <h3>List of all Reviews</h3>
+        <h3>List of all reviews</h3>
         <hr/>
         <Table striped>
             <thead>
