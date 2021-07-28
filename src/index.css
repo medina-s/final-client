@@ -98,6 +98,8 @@ margin-right: auto;
 }
 
 /* Splash Page/ Home */
+
+
 .heading {
   display: flex;
   align-items: center;
@@ -114,17 +116,20 @@ margin-right: auto;
   flex-direction: column;
   text-align: center;
   color: black;
+  box-sizing: border-box
 }
 
 
 /* Navbar */
 .navbar {
   background: rgba(0, 0, 0, 0.918);
+  border-right: 1px solid #bbb;
 }
 
-.navbar-nav > li{
+.navbar-nav > li {
   padding-left:10px;
   padding-right:10px;
+  border-right: 1px solid #bbb;
 }
 
 .logoutbtn {
@@ -135,6 +140,7 @@ margin-right: auto;
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+  margin-left: .5%; 
 }
 
 /* Review Mine / Review All */
