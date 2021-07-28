@@ -1,13 +1,10 @@
 import React, {useState,  useEffect } from 'react'
 import Auth from './Auth/Auth';
 import Sitebar from './Home/Navbar';
-import ReviewIndex from './Reviews/ReviewIndex';
 import Navigation from './Home/Navigation'
 import {
   BrowserRouter as Router //We are importing the specific part of the package BrowserRouter but calling it Router. 
 } from 'react-router-dom';
-import Home from './Reviews/ReviewIndex';
-
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');

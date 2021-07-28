@@ -5,9 +5,9 @@ import APIURL from '../helpers/environment';
 const ReviewAll = (props) => {
     const [reviews, setReviews] = useState([]);
     const fetchReviews = () => {
-        const token = localStorage.getItem("token")
-        // fetch(`${APIURL}review`, {
-            fetch ('http://localhost:3000/review', {
+        const token = localStorage.getItem("token") //Grabing the token, token wasn't being pass correctly
+        fetch(`${APIURL}review`, {
+            // fetch ('http://localhost:3000/review', {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
@@ -37,6 +37,7 @@ const ReviewAll = (props) => {
         fetchReviews();
     }, [])
     return(
+        // Table for all reviews
         <div className="viewallreviews">
         <h3 className="reviewhead">All Reviews, Enjoy!</h3>
         <hr/>
@@ -56,4 +57,5 @@ const ReviewAll = (props) => {
         </div>
     )
 }
+
 export default ReviewAll;

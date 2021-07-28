@@ -1,45 +1,44 @@
-  
 import React, {useState}from 'react';
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import APIURL from '../helpers/environment';
 
 const ReviewUpdate = (props) => {
     console.log(props)
-     const [editMovie, setEditMovie] = useState(props.review.movie);
-     const [editDate, setEditDate] = useState(props.review.date);
-     const [editFeed, setEditFeed] = useState(props.review.feedback);
+    const [editMovie, setEditMovie] = useState(props.review.movie);
+    const [editDate, setEditDate] = useState(props.review.date);
+    const [editFeed, setEditFeed] = useState(props.review.feedback);
 
-     const reviewUpdate = (event, review) => {
-      const token = localStorage.getItem("token")
-         console.log(props);
-         event.preventDefault();
-         alert('Review Updated!');
-        //  fetch(`${APIURL}review/update/${props.review.id}`, {
-            fetch (`http://localhost:3000/review/update/${props.review.id}`, {
-             method: 'PUT',
-             body: JSON.stringify({
-                 review:{
-                     movie: editMovie, 
-                     date:editDate, 
-                     feedback: editFeed
-                 }
-             }),
+    const reviewUpdate = (event, review) => {
+    const token = localStorage.getItem("token")
+        console.log(props);
+        event.preventDefault();
+        alert('Review Updated!'); //Alert pops up when review is successfully created
+        fetch(`${APIURL}review/update/${props.review.id}`, {
+            // fetch (`http://localhost:3000/review/update/${props.review.id}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                review:{
+                    movie: editMovie, 
+                    date:editDate, 
+                    feedback: editFeed
+                }
+            }),
                     
-             headers: new Headers({
-                 'Content-type': 'application/json',
-                 'Authorization': `Bearer ${token}`
-             })
-         }).then((res)=>{
-             props.fetchReviews();
+            headers: new Headers({
+                'Content-type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            })
+        }).then((res)=>{
+            props.fetchReviews();
             toggle();
 
-         })
-     }
+        })
+    }
 
     const [modal, setModal] = useState(false);
 
     const toggle = () => setModal(!modal);
-
+//Modal that opens when clicking update button
     return(
         <div>
         <Button className="updatebtn" onClick={toggle}>Update</Button>

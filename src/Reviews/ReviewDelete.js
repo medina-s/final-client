@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
+import {Button} from 'reactstrap';
 import APIURL from '../helpers/environment';
 
 const ReviewDelete = (props) => {
@@ -10,10 +10,10 @@ const ReviewDelete = (props) => {
  
     const ReviewDelete = (event, review) => {
         alert('Review Deleted');
-        const token = localStorage.getItem("token")
+        const token = localStorage.getItem("token") //grabbing token from local storage
         console.log(props);
-        // fetch(`${APIURL}review/delete/${props.review.id}`, {
-            fetch (`http://localhost:3000/review/delete/${props.review.id}`, {
+        fetch(`${APIURL}review/delete/${props.review.id}`, {
+            // fetch (`http://localhost:3000/review/delete/${props.review.id}`, {
             method: 'DELETE',
             body: JSON.stringify({
                 review: {
@@ -34,7 +34,7 @@ const ReviewDelete = (props) => {
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
     return(
-        <Button className="deletebtn" onClick={() => {ReviewDelete(props.review)}}>Delete</Button>
+        <Button className="deletebtn" onClick={() => {ReviewDelete(props.review)}}>Delete</Button> //Button that deletes review
     )
 
 };

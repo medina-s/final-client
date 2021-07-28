@@ -7,11 +7,11 @@ const Login = (props) => {
     const [password, setPassword] = useState('');
 
     const handleSubmit = (event) => {
-        const emailcheck = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+        const emailcheck = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/ //Makes sure email is in correct format
         event.preventDefault();
         if(email.match(emailcheck)) {
-        // fetch(`${APIURL}user/login`, {
-            fetch ('http://localhost:3000/user/login', {
+        fetch(`${APIURL}user/login`, {
+            // fetch ('http://localhost:3000/user/login', {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: `Bearer ${password}`}}),
             headers: new Headers({
@@ -24,7 +24,7 @@ const Login = (props) => {
         })
     }
     else {
-        alert('Invalid email address format')
+        alert('Invalid email address format') // Gives an alert if email does not contain @ 
     }
 }
 

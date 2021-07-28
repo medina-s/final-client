@@ -17,7 +17,7 @@ const Sitebar = (props) => {
     let newIsOpen = !isOpen;
     setIsOpen(newIsOpen);
 }
-
+ // textDecoration makes the links not underlined
 return (
     <Navbar light expand="md" className="navbar">
     <NavbarToggler onClick={toggle}/>

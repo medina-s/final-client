@@ -9,9 +9,9 @@ const Register = (props) => {
     const handleSubmit = (event) => {
         const emailcheck = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
         event.preventDefault();
-        if(email.match(emailcheck)) {
-        // fetch(`${APIURL}user/register`, {
-            fetch(`http://localhost:3000/user/register`, {
+        if(email.match(emailcheck)) { //Checking if email is in correct format
+        fetch(`${APIURL}user/register`, {
+            // fetch(`http://localhost:3000/user/register`, {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: `Bearer ${password}`}}),
             headers: new Headers({
@@ -31,11 +31,11 @@ const Register = (props) => {
     const [modal, setModal] = useState(false);
 
     const toggle = () => setModal(!modal);
-
+//Pop up for registering a new user
     return(
         <div className="signupform">
         <Button onClick={toggle} className="signuppopbtn">Sign up!</Button>
-        <Modal isOpen={modal} toggle={toggle}>
+        <Modal isOpen={modal} toggle={toggle}> 
             <ModalHeader className="signuphead">Sign up for an account!</ModalHeader>
             <ModalBody className="signuptest">
                 <div className="signuppopup">

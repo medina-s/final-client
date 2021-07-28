@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import APIURL from '../helpers/environment';
 
@@ -10,12 +10,12 @@ const ReviewCreate = (props) => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('Review Created');
+        alert('Review Created'); //Alert pop up for a successful review create
         console.log(props.sessionToken);
-        // fetch(`${APIURL}review/create`, {
-            fetch ('http://localhost:3000/review/create', {
+        fetch(`${APIURL}review/create`, {
+            // fetch ('http://localhost:3000/review/create', {
             method: 'POST',
-            body: JSON.stringify({review: {movie: movie, date: date, feedback: feedback}}),
+            body: JSON.stringify({review: {movie: movie, date: date, feedback: feedback}}), //what information is to be included when creating a review
             headers: new Headers({
                 'Content-type': 'application/json',
                 'Authorization': `Bearer ${props.sessionToken}`

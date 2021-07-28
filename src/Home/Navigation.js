@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
     Route,
     Switch
@@ -13,7 +13,7 @@ const token = localStorage.getItem("token")
 const Navigation = (props) => {
     
 
-
+// All the exact routes for each item in the navbar
 return (
     <Switch>
             <Route exact path='/'><Home /></Route>

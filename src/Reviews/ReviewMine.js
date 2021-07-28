@@ -8,8 +8,8 @@ const ReviewMine = (props) => {
     const [reviews, setReviews] = useState([]);
     const fetchReviews = () => {
         const token = localStorage.getItem("token")
-        // fetch(`${APIURL}review/mine`, {
-            fetch ('http://localhost:3000/review/mine', {
+        fetch(`${APIURL}review/mine`, {
+            // fetch ('http://localhost:3000/review/mine', {
 
             method: 'GET',
             headers: new Headers ({
@@ -35,8 +35,8 @@ const ReviewMine = (props) => {
                     <td>
                         <ReviewDelete review={review} sessionToken={props.sessionToken} fetchReviews={fetchReviews}/>
                     </td>
-                    
-                </tr>
+                </tr> //Line 34 calls ReviewUpdate which displays the button
+                //Line 36 calls ReviewDelete which displays the delete button
             )
         })
     }

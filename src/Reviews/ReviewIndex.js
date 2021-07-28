@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+//Our home page
 const Home = (props) => {
     return(
         <div className="heading">
