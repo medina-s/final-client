@@ -20,6 +20,7 @@ const ReviewAll = (props) => {
             console.log(token)
             })
     }
+    
     const reviewMapper = () => {
         return reviews.map((review, index) => {
             return(

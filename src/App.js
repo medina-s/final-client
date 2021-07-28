@@ -6,6 +6,7 @@ import Navigation from './Home/Navigation'
 import {
   BrowserRouter as Router //We are importing the specific part of the package BrowserRouter but calling it Router. 
 } from 'react-router-dom';
+import Home from './Reviews/ReviewIndex';
 
 
 function App() {
@@ -30,7 +31,7 @@ const clearToken = () => {
 }
 
 const protectedViews = () => {
-  return (sessionToken === localStorage.getItem('token') ? <> </> : <Auth updateToken={updateToken}/>)
+  return (sessionToken === localStorage.getItem('token') ? <Navigation sessionToken={sessionToken} /> : <Auth updateToken={updateToken}/>)
 }
 
   return (
@@ -38,7 +39,6 @@ const protectedViews = () => {
       <Router>
       {sessionToken !== '' && <Sitebar sessionToken={sessionToken} clickLogout={clearToken}/>} 
       {protectedViews()}
-      <Navigation sessionToken={sessionToken} />
       </Router>
     </div>
   );

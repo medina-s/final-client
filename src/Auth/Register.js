@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody} from 'reactstrap';
+import {Form, FormGroup, Input, Button, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import APIURL from '../helpers/environment';
 
 const Register = (props) => {
