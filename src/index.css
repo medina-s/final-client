@@ -28,6 +28,12 @@ code {
   color: black;
 }
 
+.login {
+  font-weight: 700;
+  font-family: 'Bebas Neue', cursive;
+  /* font-family: 'Comic Neue', cursive; */
+}
+
 .auth-container1{
   margin: 0 auto;
   display: block;
@@ -69,11 +75,14 @@ code {
   margin-left: auto;
   margin-right: auto;
   color: black;
+    font-family: 'Comic Neue', cursive;
 }
 
 .signuphead {
 margin-left: auto;
 margin-right: auto;
+font-weight: 700;
+font-family: 'Bebas Neue', cursive;
 }
 
 .registeremail, .registerpass {
@@ -83,11 +92,13 @@ margin-right: auto;
   margin-left: auto;
   margin-right: auto;
   color: black;
+  font-family: 'Comic Neue', cursive;
 }
 
 .signupbtn, .loginbtn {
   background-color: rgba(255, 255, 255, 0.644);
   color: black;
+  font-family: 'Comic Neue', cursive;
 }
 
 .signuppopbtn {
@@ -95,17 +106,19 @@ margin-right: auto;
   color: black;
   border: none;
   box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
+  font-family: 'Comic Neue', cursive;
 }
 
 /* Splash Page/ Home */
-
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
 .heading {
+  font-family: 'Josefin Sans', cursive;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-image: url(https://i.imgur.com/KCCRMo1.jpg);
+  background-image: url(https://i.pinimg.com/originals/69/3b/b8/693bb8db1380f20f196c83bccbc16aab.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -115,8 +128,15 @@ margin-right: auto;
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  color: black;
-  box-sizing: border-box
+  color: red;
+  box-sizing: border-box;
+  font-size: 5vh;
+}
+
+.welcome {
+  color: red;
+  box-sizing: border-box;
+  font-size: 6vh;
 }
 
 
@@ -124,6 +144,7 @@ margin-right: auto;
 .navbar {
   background: rgba(0, 0, 0, 0.918);
   border-right: 1px solid #bbb;
+  font-family: 'Comic Neue', cursive;
 }
 
 .navbar-nav > li {
@@ -162,11 +183,14 @@ margin-right: auto;
   margin-left: auto;
   border-spacing: 0;
   font-size: 20px;
+  font-family: 'Comic Neue', cursive;
 } 
 
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@1,700&display=swap");
 .moviereview > h1 {
-  font-size: 250% ;
+  font-size: 275% ;
   font-weight: 700;
+  font-family: 'Bebas Neue', cursive;
 }
 
 .moviereview {
@@ -182,6 +206,7 @@ margin-right: auto;
   min-width: 0;
   text-align: center;
   color: black;
+
 }
 
 
@@ -197,6 +222,7 @@ margin-right: auto;
   display: block;
   background-color: rgba(255, 255, 255, 0.644);
   color: black;
+  font-family: 'Comic Neue', cursive;
 }
 
 .viewmyreviews {
@@ -211,6 +237,9 @@ margin-right: auto;
   flex-direction: column;
   min-width: 0;
   color: black;
+  font-size: 100% ;
+  font-weight: 700;
+  font-family: 'Bebas Neue', cursive;
 }
 
 .viewallreviews {
@@ -225,13 +254,18 @@ margin-right: auto;
   flex-direction: column;
   min-width: 0;
   color: black;
-  overflow: auto
+  overflow: auto;
+  font-size: 100% ;
+  font-weight: 700;
+  font-family: 'Bebas Neue', cursive;
 }
 
 .updatetitle {
   text-align: center;
   display: block;
   color: black;
+  font-weight: 700;
+  font-family: 'Bebas Neue', cursive;
 }
 
 .updatemovietitle, .updatedatetitle, .updatefeedbacktitle {
@@ -240,6 +274,8 @@ display: block;
 margin-bottom: 2%;
 background-color: rgba(255, 255, 255, 0.644);
 color: black;
+font-weight: 550;
+font-family: 'Bebas Neue', cursive;
 }
 
 .updatemovie, .updatedate, .updatefeedback {
@@ -247,6 +283,12 @@ color: black;
   margin-bottom: 5%;
   background-color: #dad5d5f8;
   color: black;
+  font-family: 'Comic Neue', cursive;
+}
+
+.reviewalltop, .reviewminetop {
+  font-weight: 700;
+  font-family: 'Bebas Neue', cursive;
 }
 
 /* Create Review */
@@ -259,6 +301,7 @@ color: black;
   text-align: center;
   background: rgba(255, 255, 255, 0.644);
   color: black;
+  font-family: 'Comic Neue', cursive;
 }
 
 .feedbackinput {
@@ -271,6 +314,7 @@ color: black;
   background: rgba(255, 255, 255, 0.644);
   color: black;
   font-size: 100%;
+  font-family: 'Comic Neue', cursive;
 }
 
 .submitreviewbtn {
@@ -278,4 +322,5 @@ color: black;
   display: block;
   background-color: rgba(255, 255, 255, 0.644);
   color: black;
+  font-family: 'Comic Neue', cursive;
 }

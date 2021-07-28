@@ -9,7 +9,7 @@ const ReviewDelete = (props) => {
     const [editFeed, setEditFeed] = useState(props.review.feedback);
  
     const ReviewDelete = (event, review) => {
-
+        alert('Review Deleted');
         const token = localStorage.getItem("token")
         console.log(props);
         // fetch(`${APIURL}review/delete/${props.review.id}`, {

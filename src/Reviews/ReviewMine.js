@@ -49,7 +49,7 @@ const ReviewMine = (props) => {
         <hr/>
         <Table>
             <thead>
-                <tr>
+                <tr className="reviewminetop">
                     <th>#</th>
                     <th>Movie</th>
                     <th>Date</th>

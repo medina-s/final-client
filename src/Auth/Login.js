@@ -30,7 +30,7 @@ const Login = (props) => {
 
     return(
         <div className="loginform">
-            <h1>Login</h1>
+            <h1 className="login">Login</h1>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Input placeholder="Email" className="logemail" onChange={(e) => setEmail(e.target.value)} name="email" value={email} required/>

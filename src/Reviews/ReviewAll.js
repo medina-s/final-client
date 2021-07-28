@@ -41,7 +41,7 @@ const ReviewAll = (props) => {
         <hr/>
         <Table>
             <thead>
-                <tr>
+                <tr className="reviewalltop">
                     <th>#</th>
                     <th>Movie</th>
                     <th>Date</th>

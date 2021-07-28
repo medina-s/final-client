@@ -10,6 +10,7 @@ const ReviewCreate = (props) => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
+        alert('Review Created');
         console.log(props.sessionToken);
         // fetch(`${APIURL}review/create`, {
             fetch ('http://localhost:3000/review/create', {
