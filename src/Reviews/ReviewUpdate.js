@@ -12,7 +12,7 @@ const ReviewUpdate = (props) => {
     const token = localStorage.getItem("token")
         console.log(props);
         event.preventDefault();
-        alert('Review Updated!'); //Alert pops up when review is successfully created
+        // alert('Review Updated!'); //Alert pops up when review is successfully created
         fetch(`${APIURL}review/update/${props.review.id}`, {
             // fetch (`http://localhost:3000/review/update/${props.review.id}`, {
             method: 'PUT',
