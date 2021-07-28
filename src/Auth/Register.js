@@ -7,11 +7,9 @@ const Register = (props) => {
     const [password, setPassword] = useState('');
 
     const handleSubmit = (event) => {
-        const emailcheck = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
         event.preventDefault();
-        if(email.match(emailcheck)) { //Checking if email is in correct format
-        fetch(`${APIURL}user/register`, {
-            // fetch(`http://localhost:3000/user/register`, {
+        // fetch(`${APIURL}user/register`, {
+            fetch(`http://localhost:3000/user/register`, {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: `Bearer ${password}`}}),
             headers: new Headers({
@@ -23,28 +21,24 @@ const Register = (props) => {
             props.updateToken(data.sessionToken)
         })
     }
-    else { 
-        alert('Invalid email address format')
-    }
-    }
 
     const [modal, setModal] = useState(false);
 
     const toggle = () => setModal(!modal);
-//Pop up for registering a new user
+
     return(
         <div className="signupform">
         <Button onClick={toggle} className="signuppopbtn">Sign up!</Button>
-        <Modal isOpen={modal} toggle={toggle}> 
+        <Modal isOpen={modal} toggle={toggle}>
             <ModalHeader className="signuphead">Sign up for an account!</ModalHeader>
             <ModalBody className="signuptest">
                 <div className="signuppopup">
                 <Form onSubmit={handleSubmit}>
                     <FormGroup>
-                    <Input placeholder="Email" className="registeremail" onChange={(e) => setEmail(e.target.value)} name="email" value={email} required/>
+                    <Input type="email" placeholder="Email" className="registeremail" onChange={(e) => setEmail(e.target.value)} name="email" value={email} required/>
                     </FormGroup>
                     <FormGroup>
-                    <Input type="password" placeholder="Password" className="registerpass" onChange={(e) => setPassword(e.target.value)} name="password" value={password} required/>
+                    <Input placeholder="Password" className="registerpass" onChange={(e) => setPassword(e.target.value)} name="password" value={password} required/>
                     </FormGroup>
                     <Button type="submit" className="signupbtn" >Sign Up!</Button>
                 </Form>

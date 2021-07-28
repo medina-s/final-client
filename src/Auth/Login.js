@@ -7,9 +7,7 @@ const Login = (props) => {
     const [password, setPassword] = useState('');
 
     const handleSubmit = (event) => {
-        const emailcheck = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/ //Makes sure email is in correct format
         event.preventDefault();
-        if(email.match(emailcheck)) {
         fetch(`${APIURL}user/login`, {
             // fetch ('http://localhost:3000/user/login', {
             method: 'POST',
@@ -22,10 +20,6 @@ const Login = (props) => {
         ).then((data) => {
             props.updateToken(data.sessionToken)
         })
-    }
-    else {
-        alert('Invalid email address format') // Gives an alert if email does not contain @ 
-    }
 }
 
     return(
@@ -33,7 +27,7 @@ const Login = (props) => {
             <h1 className="login">Login</h1>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Input placeholder="Email" className="logemail" onChange={(e) => setEmail(e.target.value)} name="email" value={email} required/>
+                    <Input type="email" placeholder="Email" className="logemail" onChange={(e) => setEmail(e.target.value)} name="email" value={email} required/>
                 </FormGroup>
                 <FormGroup>
                     <Input type="password" placeholder="Password" className="logpass" onChange={(e) => setPassword(e.target.value)} name="password" value={password} required/>

@@ -10,7 +10,6 @@ const ReviewMine = (props) => {
         const token = localStorage.getItem("token")
         fetch(`${APIURL}review/mine`, {
             // fetch ('http://localhost:3000/review/mine', {
-
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
@@ -23,6 +22,7 @@ const ReviewMine = (props) => {
             console.log(token)
             })
     }
+    
     const reviewMapper = () => {
         return reviews.map((review, index) => {
             return(
