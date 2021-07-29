@@ -1,19 +1,10 @@
 import React, {useState} from 'react';
 import {Form, FormGroup, Input, Button, Modal, ModalHeader, ModalBody} from 'reactstrap';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
 import APIURL from '../helpers/environment';
 
 const Register = (props) => {
-    const [email, setEmail] = useState('');   
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const eye = <FontAwesomeIcon icon={faEye} />;
-    const [passwordShow, setPasswordShow] = useState(false);
-
-    const togglePasswordVisiblity = () => {
-      setPasswordShow(passwordShow ? false : true);
-    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -47,8 +38,7 @@ const Register = (props) => {
                     <Input type="email" placeholder="Email" className="registeremail" onChange={(e) => setEmail(e.target.value)} name="email" value={email} required/>
                     </FormGroup>
                     <FormGroup>
-                    <Input type={passwordShow ? "text" : "password"} placeholder="Password" className="registerpass" onChange={(e) => setPassword(e.target.value)} name="password" value={password} required />
-                            <i className="iregister" onClick={togglePasswordVisiblity}>{eye}</i>{" "}
+                    <Input type="password" placeholder="Password" className="registerpass" onChange={(e) => setPassword(e.target.value)} name="password" value={password} required/>
                     </FormGroup>
                     <Button type="submit" className="signupbtn" >Sign Up!</Button>
                 </Form>

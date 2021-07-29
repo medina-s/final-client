@@ -12,17 +12,7 @@ code {
     monospace;
 }
 
-.iregister {
-  position: absolute;
-  top: 42%;
-  right: 28%;
-}
 
-.ilogin {
-  position: absolute;
-  top: 14%;
-  right: 43%;
-}
 
 /*Sign up login menu */
 .background {
