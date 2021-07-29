@@ -21,7 +21,10 @@ const ReviewMine = (props) => {
             console.log(logData)
             console.log(token)
             })
-    }
+            .catch((error) => {
+                console.log(error.message)
+                })
+        };
     
     const reviewMapper = () => {
         return reviews.map((review, index) => {

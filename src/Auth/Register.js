@@ -20,7 +20,10 @@ const Register = (props) => {
         ).then((data) => {
             props.updateToken(data.sessionToken)
         })
-    }
+        .catch((error) => {
+            console.log(error.message)
+            })
+    };
 
     const [modal, setModal] = useState(false);
 

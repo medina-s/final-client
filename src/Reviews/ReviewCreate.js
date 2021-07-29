@@ -27,7 +27,10 @@ const ReviewCreate = (props) => {
             setDate('');
             setFeedback('');
         })
-    }
+        .catch((error) => {
+            console.log(error.message)
+            })
+    };
 
     return(
         <div className="moviereview">

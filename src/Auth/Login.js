@@ -20,7 +20,10 @@ const Login = (props) => {
         ).then((data) => {
             props.updateToken(data.sessionToken)
         })
-}
+        .catch((error) => {
+            console.log(error.message)
+            })
+    };
 
     return(
         <div className="loginform">

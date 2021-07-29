@@ -30,6 +30,8 @@ const ReviewDelete = (props) => {
         }).then((res) => props.fetchReviews());
             toggle();
     }
+    
+    
 
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);

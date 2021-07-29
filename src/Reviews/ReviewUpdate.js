@@ -31,9 +31,11 @@ const ReviewUpdate = (props) => {
         }).then((res)=>{
             props.fetchReviews();
             toggle();
-
         })
-    }
+        .catch((error) => {
+            console.log(error.message)
+            })
+    };
 
     const [modal, setModal] = useState(false);
 
