@@ -12,6 +12,18 @@ code {
     monospace;
 }
 
+.iregister {
+  position: absolute;
+  top: 42%;
+  right: 28%;
+}
+
+.ilogin {
+  position: absolute;
+  top: 14%;
+  right: 43%;
+}
+
 /*Sign up login menu */
 .background {
   background-image: url(https://us.123rf.com/450wm/hugolacasse/hugolacasse1603/hugolacasse160300013/53756518-illustration-of-a-film-stripe-reel-on-abstract-movie-background.jpg?ver=6);

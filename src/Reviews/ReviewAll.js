@@ -51,7 +51,7 @@ const ReviewAll = (props) => {
                 </tr>
             </thead>
             <tbody>
-            {reviews.length !== 0 ? reviewMapper() : fetchReviews()}
+            {reviews.length !== 0 ? reviewMapper() : null}
             </tbody>
         </Table>
         </div>
