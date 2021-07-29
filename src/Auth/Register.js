@@ -34,10 +34,10 @@ const Register = (props) => {
 
     return(
         <div className="signupform">
-        <Button onClick={toggle}>Sign up!</Button>
+        <Button onClick={toggle} className="signuppopbtn">Sign up!</Button>
         <Modal isOpen={modal} toggle={toggle}>
             <ModalHeader className="signuphead">Sign up for an account!</ModalHeader>
-            <ModalBody>
+            <ModalBody className="signuptest">
                 <div className="signuppopup">
                 <Form onSubmit={handleSubmit}>
                     <FormGroup>

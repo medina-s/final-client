@@ -16,10 +16,10 @@ const Navigation = (props) => {
 
 return (
     <Switch>
-    <Route exact path='/home'><Home /></Route>
-            <Route exact path='/reviewcreate'><ReviewCreate sessionToken={token}/></Route>
-            <Route exact path='/reviewall'><ReviewAll sessionToken={token}/></Route>
-            <Route exact path='/reviewmine'><ReviewMine sessionToken={token}/></Route>
+            <Route exact path='/reviewcreate'><ReviewCreate sessionToken={props.sessionToken}/></Route>
+            <Route exact path='/reviewall'><ReviewAll sessionToken={props.sessionToken}/></Route>
+            <Route exact path='/reviewmine'><ReviewMine sessionToken={props.sessionToken}/></Route>
+            <Route exact path='/'><Home /></Route>
         </Switch>
 )
 }
