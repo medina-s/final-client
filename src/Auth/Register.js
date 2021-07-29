@@ -8,8 +8,8 @@ const Register = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // fetch(`${APIURL}user/register`, {
-            fetch(`http://localhost:3000/user/register`, {
+        fetch(`${APIURL}user/register`, {
+            // fetch(`http://localhost:3000/user/register`, {
             method: 'POST',
             body: JSON.stringify({user:{email: email, password: `Bearer ${password}`}}),
             headers: new Headers({
